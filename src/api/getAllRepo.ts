@@ -38,7 +38,7 @@ export default async function getAllRepo(searchName: string) {
   };
 
   const response = await axios.post(
-    import.meta.env.VITE_URL,
+    "https://api.github.com/graphql",
     { query, variables: variables },
     { headers }
   );

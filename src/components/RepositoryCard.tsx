@@ -5,7 +5,6 @@ import { IState } from "../IProjectTypes";
 
 function RepositoryCard() {
   const { id } = useParams();
-
   const { searchRepoArr, myRepoArr } = useSelector((state: IState) => state);
   const concatArr = searchRepoArr.concat(myRepoArr);
   const finedRepo = concatArr.find((item) => item.id === id);
@@ -23,7 +22,7 @@ function RepositoryCard() {
         <div className="card-more">
           <div className="card-owner">
             <a href={finedRepo?.owner.url}>
-            <img src={finedRepo?.owner.avatarUrl} />
+              <img src={finedRepo?.owner.avatarUrl} />
               <p>{finedRepo?.owner.login}</p>
             </a>
           </div>

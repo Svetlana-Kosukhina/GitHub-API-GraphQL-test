@@ -1,4 +1,4 @@
-import actionTypes from './actionTypes';
+import actionTypes from "./actionTypes";
 import { IRepo } from "../IProjectTypes";
 
 export function createActionGetAllRepo(payload: IRepo[]) {
@@ -14,4 +14,3 @@ export function createActionGetMyRepo(payload: IRepo[]) {
     payload,
   };
 }
-

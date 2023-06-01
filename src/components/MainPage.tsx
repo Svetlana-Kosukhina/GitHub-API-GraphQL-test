@@ -46,15 +46,13 @@ function MainPage() {
   }, [searchValue, dispatch]);
 
   useEffect(() => {
-    if(!(searchValue === '' && currentPage === 1)) {
+    if (!(searchValue === "" && currentPage === 1)) {
       localStorage.setItem("searchValue", JSON.stringify(searchValue));
       localStorage.setItem("currentPage", JSON.stringify(currentPage));
     }
   }, [searchValue, currentPage]);
 
-  
   useEffect(() => {
-
     setLoading(true);
     getMyRepo()
       .then((res) => {
@@ -66,20 +64,18 @@ function MainPage() {
         setLoading(false);
         setRepoNotFound(true);
       });
-    }, [dispatch]);
+  }, [dispatch]);
 
-    useEffect(() => {
-      const localSearchValue = localStorage.getItem("searchValue");
-      const localCurrentPage = localStorage.getItem("currentPage");
-   
-      if (localSearchValue) {
-        setSearchValue(JSON.parse(localSearchValue));
-      }
-  
-      if (localCurrentPage) {
-        setCurrentPage(JSON.parse(localCurrentPage));
-      }
-    }, []);
+  useEffect(() => {
+    const localSearchValue = localStorage.getItem("searchValue");
+    const localCurrentPage = localStorage.getItem("currentPage");
+    if (localSearchValue) {
+      setSearchValue(JSON.parse(localSearchValue));
+    }
+    if (localCurrentPage) {
+      setCurrentPage(JSON.parse(localCurrentPage));
+    }
+  }, []);
 
   useEffect(() => {
     if (currentPage > pages && pages !== 0) setCurrentPage(pages);
@@ -113,8 +109,8 @@ function MainPage() {
                 <Link to={`/${item.id}`} className="link">
                   <h3>Repositories name: {item.name}</h3>
                 </Link>
-                  <h5>Stars: {item.stargazerCount}</h5>
-                  <h4>Last Commit: {item.pushedAt}</h4>
+                <h5>Stars: {item.stargazerCount}</h5>
+                <h4>Last Commit: {item.pushedAt}</h4>
                 <a href={item.url}>{item.url}</a>
               </li>
             ))}

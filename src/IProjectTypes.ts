@@ -6,7 +6,7 @@ export type IRepo = {
   id: string;
   owner: IOwner;
   languages: {
-    nodes: IOwner[]
+    nodes: IOwner[];
   };
   description: string | null;
 };

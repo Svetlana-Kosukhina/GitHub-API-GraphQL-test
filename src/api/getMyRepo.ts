@@ -36,7 +36,9 @@ export default async function getMyRepo() {
   `;
 
   const response = await axios.post(
-    import.meta.env.VITE_URL, { query }, { headers }
+    "https://api.github.com/graphql",
+    { query },
+    { headers }
   );
   return response.data;
 }
